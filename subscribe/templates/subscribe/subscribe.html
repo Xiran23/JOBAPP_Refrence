@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block title %}FlixCareers |Subscribe {% endblock title %}
+{%block content %}
+    <section>
+      <div class="container">
+          <form class="email-form" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            {% comment %} <p>
+              <label for="id_first_name">Enter First Name:</label>
+              <input type="text" name="first_name" maxlength="100" required id="id_first_name">
+            </p>
+            <p>
+              <label for="id_last_name">Enter Last Name:</label>
+              <input type="text" name="last_name" maxlength="100" required id="id_last_name">
+            </p>
+            <p>
+              <label for="id_email">Enter Email:</label>
+              <input type="email" name="email" maxlength="100" required id="id_email"> 
+            </p>
+            <p>
+              <label for="id_option">Option:</label>
+              <select name="option" id="id_option">
+            <option value="W">Weekly</option>
+            <option value="M" selected>Monthly</option>
+          </select>
+            </p> {% endcomment %}
+          <button class="email-submit">Submit</button>
+    </div>
+      </div>
+    </section>
+    {%endblock content%}
+
+{% comment %} {% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Form</title>
+    <link rel= "stylesheet" type="text/css" href="{% static 'subscribe/main.css' %}">
+  </head>
+  <style> 
+    h1{
+      color:red;
+    }
+  </style>
+  <body>
+    <h1> <img src="{% static 'subscribe/logo.png'%}"> </h1>
+    <h1>subscribe_field</h1>
+    <h2>another test field</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+    </form> 
+    <button onclick="popup()">Click me </button>
+    <button onclick="popup2()">Click me </button>
+   
+    
+    <script src = "{% static 'subscribe/main.js' %}">
+      function popup(){
+        alert `this is an alers`;
+      }
+    </script>
+    
+    {% comment %} <form method="post">
+      
+      
+      {% csrf_token %} 
+      {%for field in form %} 
+      <div class = "subscribe_field">
+        {{field.error}}
+        <label for="{{field.id_for_label}}"
+          >{{field.label}}</label>
+        
+        {{field}}
+      </div>
+
+        {% endfor %} 
+        <input type="submit" value="Submit" />
+
+    </form> {% endcomment %}
+      
+      
+      
+      
+      
+      
+      {% comment %} {% csrf_token %} 
+      {%for field in form %} 
+      <div class = "subscribe_field">
+        {{field.error}}
+        {{field.label_tag}}
+        {{field}}
+      </div>
+
+        {% endfor %}  {% endcomment %}
+
+
+
+
+      {% comment %}
+      <div class="subscribe_field">
+        {{form.first_name.errors}}
+        <label for="{{form.first_name.id_for_label}}"
+          >{{form.first_name.label}}</label
+        >
+        {{form.first_name}}
+      </div>
+      <div class="subscribe_field">
+        {{form.first_name.errors}}
+        <label for="{{form.last_name.id_for_label}}">last Name</label>
+        {{form.last_name}}
+      </div>
+      <div class="subscribe_field">
+        {{form.first_name.errors}}
+        <label for="{{form.email.id_for_label}}">Email</label>
+        {{form.email}}
+      </div>
+      {% endcomment %}
+    </form>
+
+    {% comment %}
+    <form method="POST">
+      {{form}} {% csrf_token %}
+      <input type="submit" value="Submit" />
+    </form>
+    {% endcomment %} {% comment %}
+    <form method="POST">
+      {% csrf_token %} {% if email_error_empty %}
+      <p>{{email_error_empty}}</p>
+      {% endif %}
+      <label for="first-name">First Name:</label><br />
+      <input type="text" id="f_name" name="firstname" required /><br /><br />
+
+      <label for="l_name">Last Name:</label><br />
+      <input type="text" id="l_name" name="lastname" required /><br /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" /><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+    {% endcomment %}
+  {% comment %} </body>
+</html> {% endcomment %} 

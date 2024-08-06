@@ -1,0 +1,13 @@
+<h1>Hello {{age}}</h1>
+<h1>Hello {{name}}</h1>
+<h2>list {{first_list.0}}</h2>
+<h2>{{temp_object.x}}</h2>
+
+{% if is_authentication %}
+<h1>yes is valid</h1>
+{%else%}
+<h1>user_name not defined</h1>
+{%endif %} {% for first in first_list %}
+
+<h1>{{ i }}={{ first }}</h1>
+{% endfor %} {{ first_list|length}} {% comment %} s/// {% endcomment %}
